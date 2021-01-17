@@ -6,5 +6,3 @@ for (let i = 0; i < numberOfDrumButtons; i++) {
         alert("I got clicked!");
     });
 }
-
-
