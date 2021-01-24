@@ -1,3 +1,1 @@
-$(document).on("click", function () {
-    $("h1").css("color", "purple");
-})
+$("h1").append("<button>New</button>");
