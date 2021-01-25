@@ -42,7 +42,16 @@ function checkAnswer(currentLevel) {
         }
 
     } else {
-        console.log("wrong");
+        playSound("wrong");
+        $("body").addClass("game-over");
+        setTimeout(function () {
+            $("body").removeClass("game-over")
+        },200);
+        started = false;
+        level = 0;
+        gamePattern = [];
+        userClickedPattern = [];
+        $("h1").text("Game Over, Press Any Key to Restart");
     }
 
 }
