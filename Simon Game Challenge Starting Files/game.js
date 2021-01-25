@@ -10,8 +10,8 @@ function nextSequence() {
     let randomNumber = Math.floor((Math.random()) * 4);
     let randomChosenColor = buttonColors[randomNumber];
     gamePattern.push(randomChosenColor);
+    playSound(randomChosenColor);
     $("." + randomChosenColor).fadeOut().fadeIn();
-    new Audio("sounds/" + randomChosenColor + ".mp3").play();
     console.log(gamePattern);
 }
 
@@ -20,7 +20,12 @@ $(".btn").click(function (e) {
     let userChosenColor = [];
     userChosenColor.push(e.currentTarget.id);
     userClickedPattern.push(e.currentTarget.id);
+    playSound(e.currentTarget.id);
     console.log(userClickedPattern);
 });
+
+function playSound(name) {
+    new Audio("sounds/" + name + ".mp3").play();
+}
 
 
