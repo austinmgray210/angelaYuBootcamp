@@ -5,7 +5,7 @@ let gamePattern = [];
 let userClickedPattern = [];
 
 
-
+// Choosing random color //
 function nextSequence() {
     let randomNumber = Math.floor((Math.random()) * 4);
     let randomChosenColor = buttonColors[randomNumber];
@@ -22,10 +22,20 @@ $(".btn").click(function (e) {
     userClickedPattern.push(e.currentTarget.id);
     playSound(e.currentTarget.id);
     console.log(userClickedPattern);
+    animatePress(userChosenColor);
 });
 
+// Make sound function
 function playSound(name) {
     new Audio("sounds/" + name + ".mp3").play();
+}
+
+// Animating press
+function animatePress(currentColor) {
+    $("." + currentColor).addClass("pressed");
+    setTimeout(function () {
+        $("." + currentColor).removeClass("pressed");
+    }, 100);
 }
 
 
