@@ -21,6 +21,7 @@ app.get("/hobbies", (req, res) => {
    res.send("<ul><li>Rootbeer</li><li>Code</li><li>Sleep</li></ul>")
 });
 
+
 app.listen(port, function () {
     console.log("Server started on port 3000");
 });
