@@ -14,10 +14,17 @@ app.get("/", (req, res) => {
             const weatherData = JSON.parse(data);
             const temp = weatherData.main.temp;
             const description = weatherData.weather[0].description;
+            const location = weatherData.name;
+            const icon = weatherData.weather[0].icon;
+            const imgURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+
+            res.write("<p>The weather is currently " + description + ".</p>");
+            res.write("<h1>The temperature in " + location + " is " + temp + " degrees fahrenheit.</h1>");
+            res.write("<img src=" + imgURL + " alt='weather icon'>");
+            res.send();
 
         })
     });
-    res.send("Server is up and running.");
 });
 
 
