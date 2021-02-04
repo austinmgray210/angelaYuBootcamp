@@ -5,14 +5,21 @@ const https = require("https");
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-    res.send("Hello there");
+    res.sendFile(__dirname + "/signup.html")
 });
 
 
 app.post('/', (req, res) => {
-  res.send("Hello");
+    let fistName = req.body.fName;
+    let lastName = req.body.lName;
+    let email = req.body.email;
+    console.log(fistName, lastName, email);
+
+
+
 });
 
 
